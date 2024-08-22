@@ -1,19 +1,31 @@
-import { calculateTax } from "../calculateTax";
+import { 
+    calculateTaxWithoutTaxThreshold, 
+    calculateTaxWithTaxThreshold } from "../calculateTax.js";
 
-export default function Results({hours, rates}) {
+export default function Results({
+    hours,
+    rates,
+    taxThreshold
+}) {
     const weekdayGross = hours.weekday * rates.weekday;
     const saturdayGross = hours.saturday * rates.saturday;
     const sundayGross = hours.sunday * rates.sunday;
     const overtimeGross = hours.overtime * rates.overtime;
 
     const grossIncome = Math.round(weekdayGross + saturdayGross + sundayGross + overtimeGross);
-    const tax = calculateTax(grossIncome);
+    let taxWithheld = 0;
+    let netIncome = 0;
 
-
+    if (taxThreshold) {
+        taxThreshold === "true" ? taxWithheld = calculateTaxWithTaxThreshold(grossIncome) : taxWithheld = calculateTaxWithoutTaxThreshold(grossIncome)
+        netIncome = grossIncome - taxWithheld;
+    } 
+    
     return (
-        <>
-            <h2>{grossIncome}</h2>
-            <h3>{tax}</h3>
-        </>
+        <div className="results">
+            <h4>Gross Income: ${grossIncome}</h4>
+            <h4>Tax Witheld: ${taxWithheld}</h4>
+            <h4>Net Income: ${netIncome}</h4>
+        </div>
     )
 }
