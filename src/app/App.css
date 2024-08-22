@@ -6,8 +6,8 @@
 
 :root {
     --white: white;
-    --black: #282828;
-    --accent: #253b3d;
+    --black: #161616;
+    --accent: #1b6665;
 }
 
 .header {
@@ -79,4 +79,36 @@ label {
     justify-content: center;
     align-items: center;
 
+}
+
+@media only screen and (max-width: 700px) {
+    .header {
+        text-align: center;
+    }
+    .calculator {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        width: 80%;
+    }
+
+    form {
+        width: 70%;
+        text-align: center;
+        align-items: center;
+    }
+
+    form input {
+        width: 50%;
+        text-align: center;
+    }
+
+    h3 {
+        margin-bottom: 10px;
+    }
+    
+    .results {
+        grid-column: span 1;
+        flex-direction: column;
+        align-items: center;
+    }
 }
