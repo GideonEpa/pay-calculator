@@ -9,7 +9,6 @@ function App() {
         <h1 id="title">Estimated Pay Calculator</h1>
       </div>
       <Calculator />
-      <Footer />
     </div>
   )
 }
