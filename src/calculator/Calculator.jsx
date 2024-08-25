@@ -2,7 +2,7 @@ import { useState } from "react"
 import Results from "../results/Results.jsx";
 
 export default function Calculator() {
-    const [weekdayHours, setWeekdayHours] = useState(21);
+    const [weekdayHours, setWeekdayHours] = useState(0);
     const [saturdayHours, setSaturdayHours] = useState(0);
     const [sundayHours, setSundayHours] = useState(0);
     const [overtimeHours, setOvertimeHours] = useState(0);
@@ -14,8 +14,8 @@ export default function Calculator() {
         overtime: overtimeHours,
     };
 
-    const [weekdayRate, setWeekdayRate] = useState(55);
-    const [saturdayRate, setSaturdayRate] = useState(0);
+    const [weekdayRate, setWeekdayRate] = useState(55.93);
+    const [saturdayRate, setSaturdayRate] = useState(59.58);
     const [sundayRate, setSundayRate] = useState(0);
     const [overtimeRate, setOvertimeRate] = useState(0);
 

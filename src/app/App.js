@@ -1,5 +1,6 @@
 import Calculator from "../calculator/Calculator.jsx"
 import './App.css';
+import Footer from "../Footer/Footer.jsx";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         <h1 id="title">Estimated Pay Calculator</h1>
       </div>
       <Calculator />
+      <Footer />
     </div>
   )
 }
