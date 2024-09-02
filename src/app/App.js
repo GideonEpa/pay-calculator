@@ -1,6 +1,5 @@
 import Calculator from "../calculator/Calculator.jsx"
 import './App.css';
-import Footer from "../Footer/Footer.jsx";
 
 function App() {
   return (

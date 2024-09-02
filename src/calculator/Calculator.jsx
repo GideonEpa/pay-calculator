@@ -38,7 +38,7 @@ export default function Calculator() {
                     setWeekdayRate={setWeekdayRate}
                     setSaturdayRate={setSaturdayRate}
                     setSundayRate={setSundayRate}
-                    setOvertimeRate={setOvertimeHours}
+                    setOvertimeRate={setOvertimeRate}
                     weekdayRate={weekdayRate}
                     saturdayRate={saturdayRate}
                     sundayRate={sundayRate}
