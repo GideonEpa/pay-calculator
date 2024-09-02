@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <div class="header">
-        <h1 id="title">Estimated Pay Calculator</h1>
+        <h1 id="title">Pay Checker</h1>
       </div>
       <Calculator />
     </div>

@@ -1,5 +1,8 @@
 import { useState } from "react"
 import Results from "../results/Results.jsx";
+import RatesForm from "../RatesForm/RatesForm.jsx";
+import HoursForm from "../HoursForm/HoursForm.jsx";
+import TaxThresholdForm from "../TaxThresholdForm/TaxThresholdForm.jsx";
 
 export default function Calculator() {
     const [weekdayHours, setWeekdayHours] = useState(0);
@@ -31,107 +34,32 @@ export default function Calculator() {
     return (
         <div className="hero">
             <div className="calculator">
-                <form id="ratesForm" className="ratesForm">
-                    <h3>Payrates (/hr)</h3>
-                    <label htmlFor="weekdayRate">Weekday</label>
-                    <input
-                        id="weekdayRate"
-                        name="weekdayRate"
-                        type="number"
-                        min={0}
-                        value={weekdayRate}
-                        onChange={e => setWeekdayRate(e.target.value)}
-                    />
-                    <label htmlFor="saturdayRate">Saturday</label>
-                    <input
-                        id="saturdayRate"
-                        type="number"
-                        min={0}
-                        value={saturdayRate}
-                        onChange={e => setSaturdayRate(e.target.value)}
-                    />
-                    <label htmlFor="sundayRate">Sunday</label>
-                    <input
-                        id="sundayRate"
-                        name="sundayRate"
-                        type="number"
-                        min={0}
-                        value={sundayRate}
-                        onChange={e => setSundayRate(e.target.value)}
-                    />
-                    <label htmlFor="overtimeRate">Overtime</label>
-                    <input
-                        id="overtimeRate"
-                        name="overtimeRate"
-                        type="number"
-                        min={0}
-                        value={overtimeRate}
-                        onChange={e => setOvertimeRate(e.target.value)}
-                    />
-                </form>
+                <RatesForm 
+                    setWeekdayRate={setWeekdayRate}
+                    setSaturdayRate={setSaturdayRate}
+                    setSundayRate={setSundayRate}
+                    setOvertimeRate={setOvertimeHours}
+                    weekdayRate={weekdayRate}
+                    saturdayRate={saturdayRate}
+                    sundayRate={sundayRate}
+                    overtimeRate={overtimeRate}
+                />
             
-                <form id="hoursForm">
-                    <h3>Hours worked</h3>
-                    <label htmlFor="weekdayHours">Weekday</label>
-                    <input
-                        id="weekdayHours"
-                        name="weekdayHours"
-                        value={weekdayHours}
-                        onChange={e => setWeekdayHours(e.target.value)}
-                        type="number"
-                        min={0}
-                    />
-                    <label htmlFor="saturdayHours">Saturday</label>
-                    <input
-                        id="saturdayHours"
-                        name="saturdayHours"
-                        value={saturdayHours}
-                        onChange={e => setSaturdayHours(e.target.value)}
-                        type="number"
-                        min={0}
-                    />
-                    <label htmlFor="sundayHours">Sunday</label>
-                    <input
-                        id="sundayHours"
-                        name="sundayHours"
-                        value={sundayHours}
-                        onChange={e => setSundayHours(e.target.value)}
-                        type="number"
-                        min={0}
-                    />
-                    <label htmlFor="overtimeHours">Overtime</label>
-                    <input
-                        id="overtimeHours"
-                        name="overtimeHours"
-                        value={overtimeHours}
-                        onChange={e => setOvertimeHours(e.target.value)}
-                        type="number"
-                        min={0}
-                    />
-                </form>
-                <form>
-                    <div id="taxThresholdChoice" onChange={e => setTaxThreshold(e.target.value)}>
-                        <h3>Tax-Free Threshold</h3>
-                        <div className="yes">
-                            <label htmlFor="yes">Yes</label>
-                            <input
-                                type="radio"
-                                value={true}
-                                name="taxThreshold"
-                                id="yes"
-                            />
-                        </div>
-                        <div className="no">
-                            <label htmlFor="no">No</label>
-                            <input
-                                type="radio"
-                                value={false}
-                                name="taxThreshold"
-                                id="no"
-                            />
-                        </div>
-                    </div>
-                </form>
+                <HoursForm 
+                    setWeekdayHours={setWeekdayHours}
+                    setSaturdayHours={setSaturdayHours}
+                    setOvertimeHours={setOvertimeHours}
+                    setSundayHours={setSundayHours}
+                    weekdayHours={weekdayHours}
+                    saturdayHours={saturdayHours}
+                    sundayHours={sundayHours}
+                    overtimeHours={overtimeHours}
+                />
+                
+                <TaxThresholdForm 
+                    setTaxThreshold={setTaxThreshold}
+                />
+
                 <Results
                     hours={hours}
                     rates={rates}

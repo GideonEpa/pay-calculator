@@ -26,6 +26,9 @@ export default function Results({
             <h4>Gross Income: ${grossIncome}</h4>
             <h4>Tax Witheld: ${taxWithheld}</h4>
             <h4>Net Income: ${netIncome}</h4>
+            <p>*This calculator does not account for any 
+            student loans, MediCare levy 
+            or Union contributions</p>
         </div>
     )
 }
